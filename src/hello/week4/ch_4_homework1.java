@@ -38,7 +38,7 @@ public class ch_4_homework1 {
 				}
 			}
 		}
-		System.out.println("第"+n+"个素数到第"+m+"个素数和是："+sum);
+		System.out.println(sum);
 
 	}
 
