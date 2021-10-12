@@ -1,2 +1,2 @@
-# cptest gai le yi xie 
-change
+# this is my first project on github
+and this project is about practicing java
