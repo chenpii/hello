@@ -32,7 +32,7 @@ import java.util.Scanner;
 
 输出样例：
 4x6+6x5+12x3+12x2+12x+40
-4x6+6x5+12x3+12x2+12x+40
+
 
 思路:
 1.先初始化长度为101的数组 a 
@@ -51,23 +51,38 @@ int[] a =new int[101]
 40 12 12 12 0 6 4
 
 4.输出数组。从最后一个往前遍历。
-	如果元素为0,不输出
+	如果元素等于1
 		如果坐标大于1
-			输出a[i]+"x"+i
-				如果后面第一个不是0的元素大于0的话，输出+。负的不用判断
+			输出"x"+i
 		如果坐标等于1
 			输出a[i]+"x"
 		如果坐标等于0
-			如果a[i]>0,输出+
 			输出a[i]
+		如果后面第一个不是0的元素大于0的话，输出+。负的不用判断
+	如果元素等于-1
+		如果坐标大于1
+			输出"-x"+i
+		如果坐标等于1
+			输出"-x"
+		如果坐标等于0
+			输出a[i]
+		如果后面第一个不是0的元素大于0的话，输出+。负的不用判断
+	如果元素！=0 且！=+-1
+		如果坐标大于1
+			输出a[i]+"x"+i
+		如果坐标等于1
+			输出a[i]+"x"
+		如果坐标等于0
+			输出a[i]
+		如果后面第一个不是0的元素大于0的话，输出+。负的不用判断
 
 */
 public class List_5_homework1 {
 	public static void main(String[] args) {
 		Scanner in =new Scanner(System.in);
 		int[] a =new int[101];
-		int power; 	//幂次
-		int co;		//系数
+		int power; 	//索引表示幂次
+		int co;		//元素表示系数
 		int count=0;
 		
 		//写入数组，数组坐标power表示幂，元素co表示系数；
@@ -83,33 +98,70 @@ public class List_5_homework1 {
 		}while(count!=2);
 		
 		for(int i=(a.length-1);i>-1;i--){
-			//如果元素不为0，输出
-			if(a[i]!=0){
+			//如果元素等于1
+			if(a[i]==1) {
+				//如果坐标大于1，输出元素+x+坐标
+				if(i>1){
+					System.out.print("x"+i);
+				//如果坐标等于1，输出元素+x
+				}else if(i==1){
+					System.out.print("x");
+				//如果坐标等于0，输出元素
+				}else if(i==0){
+					System.out.print(a[i]);
+				}
+				//如果后面第一个不是0的元素大于0，输出+
+				for(int k = i-1;k>-1;k--){
+					if(a[k]!=0){
+						if(a[0]>0){
+							System.out.print("+");
+						}
+						break;
+					}
+				}
+			//如果元素等于-1，输出
+			}else if(a[i]==-1) {
+				//如果坐标大于1，输出元素+x+坐标
+				if(i>1){
+					System.out.print("-x"+i);
+				//如果坐标等于1，输出元素+x
+				}else if(i==1){
+					System.out.print("-x");
+				//如果坐标等于0，输出元素
+				}else if(i==0){
+					System.out.print(a[i]);
+				}
+				//如果后面第一个不是0的元素大于0，输出+
+				for(int k = i-1;k>-1;k--){
+					if(a[k]!=0){
+						if(a[0]>0){
+							System.out.print("+");
+						}
+						break;
+					}
+				}
+			//如果元素不等于0，输出
+			}else if(a[i]!=0){
 				//如果坐标大于1，输出元素+x+坐标
 				if(i>1){
 					System.out.print(a[i]+"x"+i);
-					//如果后面第一个不是0的元素大于0，输出+
-					for(int k = i-1;k>0;k--){
-						if(a[k]!=0){
-							if(a[0]>0){
-								System.out.print("+");
-							}
-							break;
-						}
-					}
 				//如果坐标等于1，输出元素+x
 				}else if(i==1){
 					System.out.print(a[i]+"x");
 				//如果坐标等于0，输出元素
 				}else if(i==0){
-					if(a[i]>0){
-						System.out.print("+");
-					}
 					System.out.print(a[i]);
+				}
+				//如果后面第一个不是0的元素大于0，输出+
+				for(int k = i-1;k>-1;k--){
+					if(a[k]!=0){
+						if(a[0]>0){
+							System.out.print("+");
+						}
+						break;
+					}
 				}
 			}
 		}
 	}
 }
-
-
