@@ -87,6 +87,7 @@ public class List_5_homework1 {
 		int power; 	//幂次--数组的下标
 		int co;		//系数--数组的元素
 		int count=0;
+		boolean isNull=true; 	
 		
 		//写入数组，数组坐标power表示幂，元素co表示系数；
 		//将co加到a[power]
@@ -100,56 +101,67 @@ public class List_5_homework1 {
 			}
 		}while(count!=2);
 		
-		for(int i=(a.length-1);i>=0;i--){
-			if(a[i]==1) {
-				if(i>1){
-					System.out.print("x"+i);
-				}else if(i==1){
-					System.out.print("x");
-				}else if(i==0){
-					System.out.print(a[i]);
-				}
-				for(int k = i-1;k>=0;k--){
-					if(a[k]!=0){
-						if(a[k]>0) {
-							System.out.print("+");
-						}
-						break;
+		for(int i =0;i<a.length;i++) {
+			if(a[i]!=0) {
+				isNull=false;
+				break;
+			}
+		}
+		
+		if(!isNull) {
+			for(int i=(a.length-1);i>=0;i--){
+				if(a[i]==1) {
+					if(i>1){
+						System.out.print("x"+i);
+					}else if(i==1){
+						System.out.print("x");
+					}else if(i==0){
+						System.out.print(a[i]);
 					}
-				}
-			}else if(a[i]==-1) {
-				if(i>1){
-					System.out.print("-x"+i);
-				}else if(i==1){
-					System.out.print("-x");
-				}else if(i==0){
-					System.out.print(a[i]);
-				}
-				for(int k = i-1;k>=0;k--){
-					if(a[k]!=0){
-						if(a[k]>0) {
-							System.out.print("+");
+					for(int k = i-1;k>=0;k--){
+						if(a[k]!=0){
+							if(a[k]>0) {
+								System.out.print("+");
+							}
+							break;
 						}
-						break;
 					}
-				}
-			}else if(a[i]!=0){
-				if(i>1){
-					System.out.print(a[i]+"x"+i);
-				}else if(i==1){
-					System.out.print(a[i]+"x");
-				}else if(i==0){
-					System.out.print(a[i]);
-				}
-				for(int k = i-1;k>=0;k--){
-					if(a[k]!=0){
-						if(a[k]>0) {
-							System.out.print("+");
+				}else if(a[i]==-1) {
+					if(i>1){
+						System.out.print("-x"+i);
+					}else if(i==1){
+						System.out.print("-x");
+					}else if(i==0){
+						System.out.print(a[i]);
+					}
+					for(int k = i-1;k>=0;k--){
+						if(a[k]!=0){
+							if(a[k]>0) {
+								System.out.print("+");
+							}
+							break;
 						}
-						break;
+					}
+				}else if(a[i]!=0){
+					if(i>1){
+						System.out.print(a[i]+"x"+i);
+					}else if(i==1){
+						System.out.print(a[i]+"x");
+					}else if(i==0){
+						System.out.print(a[i]);
+					}
+					for(int k = i-1;k>=0;k--){
+						if(a[k]!=0){
+							if(a[k]>0) {
+								System.out.print("+");
+							}
+							break;
+						}
 					}
 				}
 			}
+		}else {
+			System.out.print("0");
 		}
 	}
 }
