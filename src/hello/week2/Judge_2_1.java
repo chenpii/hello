@@ -2,7 +2,7 @@ package hello.week2;
 
 import java.util.Scanner;
 
-public class ch_2_1 {
+public class Judge_2_1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		≥ı ºªØ

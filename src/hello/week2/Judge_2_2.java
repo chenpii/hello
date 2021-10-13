@@ -2,7 +2,7 @@ package hello.week2;
 
 import java.util.Scanner;
 
-public class ch_2_2 {
+public class Judge_2_2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		final int MINOR=35;

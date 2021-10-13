@@ -2,7 +2,7 @@ package hello.week1;
 
 import java.util.Scanner;
 
-public class ch_1_homework {
+public class Calculate_homework {
 /*
  * 写一个将华氏温度转换成摄氏温度的程序，转换的公式是：°F = *°C + 32
  * 其中C表示摄氏温度，F表示华氏温度。C=(F-32)/(9/5)

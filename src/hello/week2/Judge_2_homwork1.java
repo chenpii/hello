@@ -19,7 +19,7 @@ import java.util.Scanner;
 如果BJT<800,说明跨日，UTC=2359-(800-BJT)
 3.输出UTC
  * */
-public class ch_2_homwork1 {
+public class Judge_2_homwork1 {
 	public static void main(String[] args) {
 		int BJT,UTC;
 //		获取BJT

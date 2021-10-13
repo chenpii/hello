@@ -2,7 +2,7 @@ package hello.week3;
 
 import java.util.Scanner;
 
-public class ch_3_3 {
+public class Loop_3_3 {
 	public static void main(String[] args) {
 //		ÄæĞòÊä³öÊı×Ö
 		Scanner in = new Scanner(System.in);

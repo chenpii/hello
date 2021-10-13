@@ -7,7 +7,7 @@ import java.util.Scanner;
  3.计算可辨度R：RS/10
  4.先根据S输出，逗号空格，再根据R输出
  * */
-public class ch_2_homwork2 {
+public class Judge_2_homwork2 {
 	public static void main(String[] args) {
 		int R,S,RS;
 		Scanner in = new Scanner(System.in);

@@ -2,10 +2,9 @@ package hello.week1;
 
 import java.util.Scanner;
 
-public class ch_1_2 {
+public class Calculate_1_2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("ÄãºÃ");
 		Scanner in = new Scanner(System.in);
 //		System.out.println("echo:" + in.nextLine());
