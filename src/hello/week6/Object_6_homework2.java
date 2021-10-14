@@ -61,8 +61,9 @@ END
 思路:
 1.当没读到END之前,循环
 2.定义变量
-定义字符串变量str存储$跟*之间的所有字符
-定义整数变量UTC存储第一个，后面6位的数字
+定义字符串变量str存储输入的字符串
+定义字符串变量substr存储$跟*之间的所有字符
+定义整数变量UTC存储第一个"，"后面6位的数字
 定义整数变量code记录*后面的两位数
 定义最后要输出的字符串变量ret
 
@@ -76,6 +77,28 @@ END
 */
 public class Object_6_homework2 {
 	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		String str =in.nextLine();	//输入的字符串
+		String substr;				//$跟*之间的子串
+		int num;					//子串的异或值
+		String code;				//*后的校验码
+		String UTC;					//字段1，第一个逗号跟第二个逗号之间的字符串
+		String ret;					//最后输出的结果
 		
+//		while(!str.equals("END")) {
+//		
+//	}
+		substr=str.substring(str.indexOf('$')+1,str.indexOf('*'));
+		num=substr.charAt(0)^substr.charAt(1);
+		for(int i=2;i<substr.length();i++) {
+			num=num^substr.charAt(i);
+		}
+		code=str.substring(str.indexOf('*')+1);
+		//校验成功
+		if(num==Integer.parseInt(code,16)) {
+			int loc=str.indexOf(',');
+			UTC=str.substring(str.indexOf(',')+1,str.indexOf(',',loc+1));
+			System.out.print(UTC);
+		}
 	}
 }
