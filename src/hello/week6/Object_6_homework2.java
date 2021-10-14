@@ -90,9 +90,11 @@ public class Object_6_homework2 {
 //	}
 		substr=str.substring(str.indexOf('$')+1,str.indexOf('*'));
 		num=substr.charAt(0)^substr.charAt(1);
+		//计算校验值
 		for(int i=2;i<substr.length();i++) {
 			num=num^substr.charAt(i);
 		}
+		num=65536/num;
 		code=str.substring(str.indexOf('*')+1);
 		//校验成功
 		if(num==Integer.parseInt(code,16)) {
