@@ -61,46 +61,92 @@ END
 思路:
 1.当没读到END之前,循环
 2.定义变量
-定义字符串变量str存储输入的字符串
-定义字符串变量substr存储$跟*之间的所有字符
-定义整数变量UTC存储第一个"，"后面6位的数字
-定义整数变量code记录*后面的两位数
-定义最后要输出的字符串变量ret
-
-3.字符串遍历做异或运算，再对65536取余。转换成16进制后如果跟*后面的code。如果相等，开始计算。
+字符串变量str存储输入的字符串
+字符串变量substr存储$跟*之间的所有字符
+字符串变量code记录*后面的两位数
+整数变量
+3.字符串遍历做异或运算，再对65536取余。
+转换成16进制后如果跟*后面的code。如果相等，开始计算。
 
 4.UTC转换成BJT
-如果UTC<=160000,直接+80000;否则UTC-160000
-再转换成字符串不足6位前面补0
-两个两个输出，以:分割
+整数变量UTC存储第一个"，"后面的整数
+如果UTC<160000,直接+80000;否则UTC-160000
+BJT
+最后要输出的字符串变量ret
 
 */
 public class Object_6_homework2 {
-	public static void main(String[] args) {
-		Scanner in =new Scanner(System.in);
-		String str =in.nextLine();	//输入的字符串
+	//	校验是否正确
+	public static boolean isRight(String str){
 		String substr;				//$跟*之间的子串
 		int num;					//子串的异或值
 		String code;				//*后的校验码
-		String UTC;					//字段1，第一个逗号跟第二个逗号之间的字符串
-		String ret;					//最后输出的结果
 		
-//		while(!str.equals("END")) {
-//		
-//	}
 		substr=str.substring(str.indexOf('$')+1,str.indexOf('*'));
 		num=substr.charAt(0)^substr.charAt(1);
 		//计算校验值
 		for(int i=2;i<substr.length();i++) {
 			num=num^substr.charAt(i);
 		}
-		num=65536/num;
+		num=num%65536;
 		code=str.substring(str.indexOf('*')+1);
-		//校验成功
-		if(num==Integer.parseInt(code,16)) {
-			int loc=str.indexOf(',');
-			UTC=str.substring(str.indexOf(',')+1,str.indexOf(',',loc+1));
-			System.out.print(UTC);
+		return (num==Integer.parseInt(code,16));
+	}
+	
+	//	标准格式化时间 将hhmmss转化成hh：mm：ss
+	public static String formatTime(int time){
+		String hh;
+		String mm;
+		String ss;
+		
+		if((time/10000)>=10){
+			hh=""+(time/10000);
+		}else if ((time/10000)>0){
+			hh="0"+(time/10000);
+		}else{
+			hh="00";
 		}
+		
+		if(((time%10000)/100)>=10){
+			mm=""+((time%10000)/100);
+		}else if (((time%10000)/100)>0){
+			mm="0"+((time%10000)/100);
+		}else{
+			mm="00";
+		}
+		
+		if((time%100)>=10){
+			ss=""+(time%100);
+		}else if (time%100>0){
+			ss="0"+(time%100);
+		}else{
+			ss="00";
+		}
+		return(hh+":"+mm+":"+ss);
+	}
+	
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		String str =in.nextLine();	//输入的字符串
+		int UTC;					//字段1的整数部分
+		int BJT;					//字段1转化成BJT
+		String ret="";				//最后输出的结果
+		
+		while(!str.equals("END")) {
+			//校验成功
+			if(isRight(str)) {
+				UTC=Integer.parseInt(str.substring(str.indexOf(',')+1,str.indexOf('.')));
+				//24813 hhmmss
+				if(UTC<160000){
+					BJT=UTC+80000;
+				}else{
+					BJT=UTC-160000;
+				}
+				//BJT=104813 hhmmss
+				ret=formatTime(BJT);
+			}
+			str =in.nextLine();
+		}
+		System.out.print(ret);
 	}
 }
