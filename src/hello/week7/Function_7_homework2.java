@@ -8,7 +8,6 @@ import java.util.Scanner;
 	 * 例如6=1＋2＋3(6的因子是1,2,3)。
 	 * 
 	 * 现在，你要写一个程序，读入两个正整数n和m（1<=n<m<1000），输出[n,m]范围内所有的完数。
-	 * 
 	 * 提示：可以写一个函数来判断某个数是否是完数。
 	 * 
 	 * 输入格式:
@@ -23,8 +22,40 @@ import java.util.Scanner;
 	 * 6
 	 * */
 public class Function_7_homework2 {
+	//	判断完数
+	public static boolean isPerfect(int n) {
+		int sum=0;
+		for (int i=1;i<n;i++) {
+			if(n%i==0) {
+				sum=sum+i;
+			}
+		}
+		if (sum==n) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int startNumber =in.nextInt();	//开始
+		int endNumber =in.nextInt();	//结束
+		int count=0;					//完数的计数
 		
+		for(int i=startNumber;i<=endNumber;i++) {
+			if (isPerfect(i)) {
+				count++;
+				if(count==1) {
+					System.out.print(i);
+				}else if(count>1) {
+					System.out.print(" "+i);
+				}
+			}
+		}
+		
+		if(count==0) {
+			System.out.println("");
+		}
 	}
 }
