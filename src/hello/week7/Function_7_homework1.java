@@ -58,6 +58,7 @@ public class Function_7_homework1 {
 		System.out.print(number+"=");
 		while(!isPrime(number)){
 			for(int i=2;i<number;i++){
+				// 如果i是素数且能被number整除
 				if((isPrime(i)) && ((number%i)==0)){
 					System.out.print(i+"x");
 					number=number/i;

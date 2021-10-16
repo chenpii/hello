@@ -48,7 +48,7 @@ public class Function_7_homework2 {
 				count++;
 				if(count==1) {
 					System.out.print(i);
-				}else if(count>1) {
+				}else{
 					System.out.print(" "+i);
 				}
 			}
