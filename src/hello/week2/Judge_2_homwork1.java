@@ -16,7 +16,7 @@ import java.util.Scanner;
 1.获取整数型BJT
 2.计算UTC
 如果BJT>=800,说明不跨日，UTC=BJT-800
-如果BJT<800,说明跨日，UTC=2359-(800-BJT)
+如果BJT<800,说明跨日，UTC=2400-(800-BJT)
 3.输出UTC
  * */
 public class Judge_2_homwork1 {
@@ -29,7 +29,7 @@ public class Judge_2_homwork1 {
 		if (BJT >=800) {
 			UTC=BJT-800;
 		}else {
-			UTC=2400-(800-BJT);
+			UTC=1600+BJT;
 		}
 // 		输出UTC
 		System.out.print(UTC);

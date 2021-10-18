@@ -92,37 +92,26 @@ public class Object_6_homework2 {
 		code=str.substring(str.indexOf('*')+1);
 		return (num==Integer.parseInt(code,16));
 	}
+	//	判断是否已定位
+	public static boolean isLoc(String str) {
+		//第一个逗号索引：
+		int first=str.indexOf(",");
+		//第二个逗号索引
+		int secend=str.indexOf(",",first+1);
+		//第三个逗号索引
+		int third=str.indexOf(",",secend+1);
+		String substr=str.substring(secend+1,third);				//第二字段,即第二个，到第三个，之间
+		if(substr.equals("A")){
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 	
 	//	标准格式化时间 将hhmmss转化成hh：mm：ss
 	public static String formatTime(int time){
-		String hh;
-		String mm;
-		String ss;
-		
-		if((time/10000)>=10){
-			hh=""+(time/10000);
-		}else if ((time/10000)>0){
-			hh="0"+(time/10000);
-		}else{
-			hh="00";
-		}
-		
-		if(((time%10000)/100)>=10){
-			mm=""+((time%10000)/100);
-		}else if (((time%10000)/100)>0){
-			mm="0"+((time%10000)/100);
-		}else{
-			mm="00";
-		}
-		
-		if((time%100)>=10){
-			ss=""+(time%100);
-		}else if (time%100>0){
-			ss="0"+(time%100);
-		}else{
-			ss="00";
-		}
-		return(hh+":"+mm+":"+ss);
+		return String.format("%02d:%02d:%02d\n", time/10000,(time%10000)/100,time%100);
 	}
 	
 	public static void main(String[] args) {
@@ -134,15 +123,13 @@ public class Object_6_homework2 {
 		
 		while(!str.equals("END")) {
 			//校验成功
-			if(isRight(str)) {
+			if(isRight(str)&&isLoc(str)) {
 				UTC=Integer.parseInt(str.substring(str.indexOf(',')+1,str.indexOf('.')));
-				//24813 hhmmss
 				if(UTC<160000){
 					BJT=UTC+80000;
 				}else{
 					BJT=UTC-160000;
 				}
-				//BJT=104813 hhmmss
 				ret=formatTime(BJT);
 			}
 			str =in.nextLine();

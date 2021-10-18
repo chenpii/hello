@@ -31,6 +31,10 @@ public class Object_6_homework1 {
 			System.out.print(s.length()+" ");
 			s=in.next();
 		}
-		System.out.print((s.length()-1));
+		if(s.length()>1) {
+			System.out.print((s.length()-1));
+		}else {
+			System.out.print("");
+		}
 	}
 }
