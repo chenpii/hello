@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Loop_3_2 {
 	public static void main(String[] args) {
-//		猜数字
+		// 猜数字
 		Scanner in = new Scanner(System.in);
-		int number = (int)(Math.random()*100+1);//[0,1)
+		int number = (int) (Math.random() * 100 + 1);// [0,1)
 		int a;
-		int count=0;
-		do{
-			a=in.nextInt();
+		int count = 0;
+		do {
+			a = in.nextInt();
 			count++;
-			if(a>number) {
+			if (a > number) {
 				System.out.println("大了");
-			}else if(a<number) {
+			} else if (a < number) {
 				System.out.println("小了");
 			}
-		}while(a!=number);
-		System.out.println("猜对了，猜了"+count+"次");
+		} while (a != number);
+		System.out.println("猜对了，猜了" + count + "次");
 	}
 }

@@ -3,31 +3,32 @@ package hello.week4;
 import java.util.Scanner;
 
 public class CycleControl_4_homework2 {
-	/*念整数
-	 * */
+	/*
+	 * 念整数
+	 */
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int number = in.nextInt();
-		int n;				//每一位的数
-		int length=0;		//number的长度
-		int onumber=Math.abs(number);
-		
-		//负的情况
-		if(number<0) {
+		int n; // 每一位的数
+		int length = 0; // number的长度
+		int onumber = Math.abs(number);
+
+		// 负的情况
+		if (number < 0) {
 			System.out.print("fu ");
-			number=-number;
+			number = -number;
 		}
-		//获得长度length
-		do{
-			n=number%10;
-			number /=10;
+		// 获得长度length
+		do {
+			n = number % 10;
+			number /= 10;
 			length++;
-		}while(number>0);
-		
-		//根据长度从左至右获得每一位
-		for(int i =length; i>0 ;i--) {
-			n=onumber/(int)(Math.pow(10, i-1));
-			onumber=onumber-(int)(Math.pow(10, i-1))*n;
+		} while (number > 0);
+
+		// 根据长度从左至右获得每一位
+		for (int i = length; i > 0; i--) {
+			n = onumber / (int) (Math.pow(10, i - 1));
+			onumber = onumber - (int) (Math.pow(10, i - 1)) * n;
 			switch (n) {
 			case 1:
 				System.out.print("yi");
@@ -62,8 +63,8 @@ public class CycleControl_4_homework2 {
 			default:
 				break;
 			}
-			//如果不是最后一个，打印空格
-			if(i!=1) {
+			// 如果不是最后一个，打印空格
+			if (i != 1) {
 				System.out.print(" ");
 			}
 		}

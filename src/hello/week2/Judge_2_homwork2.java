@@ -1,6 +1,7 @@
 package hello.week2;
 
 import java.util.Scanner;
+
 /*
  1.获取RS两位整数
  2.计算强度S：RS%10 
@@ -9,12 +10,12 @@ import java.util.Scanner;
  * */
 public class Judge_2_homwork2 {
 	public static void main(String[] args) {
-		int R,S,RS;
+		int R, S, RS;
 		Scanner in = new Scanner(System.in);
-		RS=in.nextInt();
-		S=RS%10;
-		R=RS/10;
-//		先根据强度S输出
+		RS = in.nextInt();
+		S = RS % 10;
+		R = RS / 10;
+		// 先根据强度S输出
 		switch (S) {
 		case 1: {
 			System.out.print("Faint signals, barely perceptible");
@@ -55,16 +56,17 @@ public class Judge_2_homwork2 {
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + S);
 		}
-//		打印逗号与空格
+		// 打印逗号与空格
 		System.out.print(", ");
-//		再根据清晰度R输出
+		// 再根据清晰度R输出
 		switch (R) {
 		case 1: {
 			System.out.print("unreadable");
 			break;
 		}
 		case 2: {
-			System.out.print("barely readable, occasional words distinguishable");
+			System.out
+					.print("barely readable, occasional words distinguishable");
 			break;
 		}
 		case 3: {
@@ -82,7 +84,7 @@ public class Judge_2_homwork2 {
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + R);
 		}
-//		打印句号
+		// 打印句号
 		System.out.print(".");
 	}
 }
