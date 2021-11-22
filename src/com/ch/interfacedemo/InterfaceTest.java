@@ -7,6 +7,9 @@ public class InterfaceTest {
 		System.out.println(Flyablle.MIN_SPEED);
 		// Flyablle.MIN_SPEED = 2;
 
+		Bullet b = new Bullet();
+		b.fly();
+
 	}
 
 }
@@ -23,6 +26,10 @@ interface Flyablle {
 
 }
 
+interface attackable {
+	public abstract void attack();
+}
+
 class Plane implements Flyablle {
 
 	@Override
@@ -34,6 +41,28 @@ class Plane implements Flyablle {
 	@Override
 	public void stop() {
 		System.out.println("驾驶员减速停止");
+
+	}
+
+}
+
+class Bullet extends Object implements Flyablle, attackable {
+
+	@Override
+	public void attack() {
+		System.out.println("子弹可以攻击人");
+
+	}
+
+	@Override
+	public void fly() {
+		System.out.println("子弹通过火药爆炸飞行");
+
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("子弹打中物体停止");
 
 	}
 
