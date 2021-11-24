@@ -1,4 +1,4 @@
-package com.ch.interfacedemo;
+package com.ch.interfaceDemo;
 
 public class USBTest {
 

@@ -1,4 +1,4 @@
-package com.ch.interfaceTest.Java8;
+package com.ch.interfaceDemo.Java8;
 
 interface CompareB {
 	default void method3() {

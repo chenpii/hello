@@ -1,4 +1,4 @@
-package com.ch.interfaceTest.Java8;
+package com.ch.interfaceDemo.Java8;
 
 /*
  * JDK8,除了定义全局常量和抽象方法外，还可以定义静态方法、默认方法

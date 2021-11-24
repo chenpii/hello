@@ -1,4 +1,4 @@
-package com.ch.factorys.method;
+package com.ch.interfaceDemo.factorys.method;
 
 /*
  * 工厂方法模式

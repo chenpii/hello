@@ -1,4 +1,4 @@
-package com.ch.factorys.nofactory;
+package com.ch.interfaceDemo.factorys.nofactory;
 
 /*
  * 无工厂模式

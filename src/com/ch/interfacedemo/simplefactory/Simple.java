@@ -1,4 +1,4 @@
-package com.ch.factorys.simple;
+package com.ch.interfaceDemo.simplefactory;
 
 /*
  * 简单工厂模式

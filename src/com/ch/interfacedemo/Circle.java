@@ -1,4 +1,4 @@
-package com.ch.interfacedemo;
+package com.ch.interfaceDemo;
 
 /*
  * 定义一个Circle类，声明radius属性，提供get set方法

@@ -1,4 +1,4 @@
-package com.ch.interfacedemo;
+package com.ch.interfaceDemo;
 
 /*
  * 定义ComparableCircle类，继承Circle，实现CompareObject接口

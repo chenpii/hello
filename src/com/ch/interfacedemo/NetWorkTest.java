@@ -1,4 +1,4 @@
-package com.ch.interfacedemo;
+package com.ch.interfaceDemo;
 
 /*
  * 接口的应用：代理模式
