@@ -1,7 +1,6 @@
 package com.ch.exceptionDemo;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -12,14 +11,14 @@ public class ExceptionTest {
 	@Test
 	public void test7() {
 		File file = new File("hello.txt");
-		FileInputStream fis = new FileInputStream(file);
-
-		int data = fis.read();
-		while (data != -1) {
-			System.out.print((char) data);
-			data = fis.read();
-		}
-		fis.close();
+		// FileInputStream fis = new FileInputStream(file);
+		//
+		// int data = fis.read();
+		// while (data != -1) {
+		// System.out.print((char) data);
+		// data = fis.read();
+		// }
+		// fis.close();
 
 	}
 
