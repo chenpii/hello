@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-public class ExceptionTest2 {
+public class TryCatchExceptionTest {
 	@Test
 	public void test1() {
 		FileInputStream fis = null;
