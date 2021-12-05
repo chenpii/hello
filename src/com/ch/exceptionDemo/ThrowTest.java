@@ -5,11 +5,12 @@ public class ThrowTest {
 	public static void main(String[] args) {
 		Student s = new Student();
 		try {
-			s.regit(-1001);
+			s.regist(-1001);
+			System.out.println(s);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(s);
+
 	}
 
 }
@@ -17,7 +18,7 @@ public class ThrowTest {
 class Student {
 	private int id;
 
-	public void regit(int id) throws Exception {
+	public void regist(int id) throws Exception {
 		if (id > 0) {
 			this.id = id;
 		} else {
